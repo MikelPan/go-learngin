@@ -2,9 +2,9 @@ package models
 
 import (
 	"fmt"
+	"github.com/MikelPan/go-learning/pkg/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"go-learning/pkg/setting"
 	"log"
 )
 

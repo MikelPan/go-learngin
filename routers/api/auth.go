@@ -1,11 +1,11 @@
 package api
 
 import (
+	"github.com/MikelPan/go-learning/models"
+	"github.com/MikelPan/go-learning/pkg/e"
+	"github.com/MikelPan/go-learning/pkg/util"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
-	"go-learning/models"
-	"go-learning/pkg/e"
-	"go-learning/pkg/util"
 	"log"
 	"net/http"
 )
@@ -26,13 +26,8 @@ func GetAuth(c *gin.Context) {
 	code := e.INVALID_PARAMS
 	if ok {
 		isExist := models.CheckAuth(username, password)
-		if !isExist {
-			log.Printf("%T,%T\n",username,password)
-			log.Println("========")
-			log.Println(username,password)
-			token, err := util.GenerateToken("admin", "admin")
-			log.Println("----------")
-			log.Println(err)
+		if isExist {
+			token, err := util.GenerateToken(username, password)
 			if err != nil {
 				code = e.ERROR_AUTH_TOKEN
 			} else {

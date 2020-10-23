@@ -1,8 +1,8 @@
 package util
 
 import (
+	"github.com/MikelPan/go-learning/pkg/setting"
 	jwt "github.com/dgrijalva/jwt-go"
-	"go-learning/pkg/setting"
 	"log"
 	"time"
 )
@@ -23,21 +23,18 @@ func GenerateToken(username,password string) (string, error) {
 	claims := Claims{
 		username,
 		password,
-		jwt.StandardClaims{
+		jwt.StandardClaims {
+			NotBefore: int64(time.Now().Unix() - 1000),
 			ExpiresAt: expireTime.Unix(),
 			Issuer: "go-learning",
 		},
 	}
-	log.Println("获取username")
-	log.Println(claims.Username)
-	log.Println(claims.Password)
-	log.Println(claims)
-
-	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodES256, claims)
-	log.Println(tokenClaims)
+	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	token, err := tokenClaims.SignedString(jwtSecret)
-
-	return token,err
+	if err != nil {
+		log.Println(err)
+	}
+	return token, err
 
 }
 

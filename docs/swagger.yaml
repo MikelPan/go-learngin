@@ -1,0 +1,25 @@
+basePath: /api/v1
+host: 127.0.0.1:8000
+info:
+  contact:
+    url: http://www.swagger.io/support
+  description: An devops of gin
+  termsOfService: https://github.com/MikelPan/go-learning
+  title: Golang Gin API
+  version: "1.0"
+paths:
+  /api/v1/user/lists:
+    get:
+      produces:
+      - application/json
+      summary: 查询用户
+      tags:
+      - 用户
+  /api/v1/user/user_info:
+    get:
+      produces:
+      - application/json
+      summary: 查询用户信息
+      tags:
+      - 用户
+swagger: "2.0"

@@ -1,0 +1,38 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "An devops of gin",
+        "title": "Golang Gin API",
+        "termsOfService": "https://github.com/MikelPan/go-learning",
+        "contact": {
+            "url": "http://www.swagger.io/support"
+        },
+        "version": "1.0"
+    },
+    "host": "127.0.0.1:8000",
+    "basePath": "/api/v1",
+    "paths": {
+        "/api/v1/user/lists": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户"
+                ],
+                "summary": "查询用户"
+            }
+        },
+        "/api/v1/user/user_info": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户"
+                ],
+                "summary": "查询用户信息"
+            }
+        }
+    }
+}

@@ -21,8 +21,15 @@ func InitRouter() *gin.Engine {
 	//apiv1.Use(jwt.JWT())
     {
     	apiv1.GET("/index", v1.Home)
-    	apiv1.GET("/user/lists",v1.GetUser)
-		apiv1.GET("/user/user_info",v1.GetUserInfo)
+
+		apiv1.GET("/users",v1.GetUsers)
+    	apiv1.GET("/users/:id",v1.GetUser)
+		apiv1.POST("/users",v1.AddUser)
+		apiv1.PUT("/users/:id",v1.EditUser)
+		apiv1.DELETE("/users/:id",v1.DeleteUser)
+
+
+		//apiv1.GET("/user/user_info",v1.GetUserInfo)
 	}
 	return r
 }

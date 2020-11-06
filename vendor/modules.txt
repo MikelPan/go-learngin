@@ -79,6 +79,9 @@ github.com/swaggo/gin-swagger
 github.com/swaggo/swag
 # github.com/ugorji/go/codec v1.1.7
 github.com/ugorji/go/codec
+# github.com/unknwon/com v1.0.1
+## explicit
+github.com/unknwon/com
 # golang.org/x/net v0.0.0-20200625001655-4c5254603344
 golang.org/x/net/idna
 golang.org/x/net/webdav

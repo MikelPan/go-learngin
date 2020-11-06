@@ -6,6 +6,27 @@ import (
 	"time"
 )
 
+type App struct {
+	JwtSecret string
+	PageSize  int
+	PrefixUrl string
+
+	RuntimeRootPath string
+
+	ImageSavePath  string
+	ImageMaxSize   int
+	ImageAllowExts []string
+
+	ExportSavePath string
+	QrCodeSavePath string
+	FontSavePath   string
+
+	LogSavePath string
+	LogSaveName string
+	LogFileExt  string
+	TimeFormat string
+}
+
 var (
 	Cfg *ini.File
 	RunMode string
@@ -13,8 +34,9 @@ var (
 	ReadTimeout time.Duration
 	WriteTimeout time.Duration
 	PageSize int
-	JwtSecret string
 )
+
+var AppSetting = &App{}
 
 func init() {
 	var err error
@@ -47,6 +69,6 @@ func LoadApp() {
 	if err != nil {
 		log.Fatalf("Fail to get section 'app': %v", err)
 	}
-	JwtSecret = sec.Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
+	//JwtSecret = sec.Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
 	PageSize = sec.Key("PAGE_SIZE").MustInt(10)
 }

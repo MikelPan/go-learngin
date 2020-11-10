@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"reflect"
 	"runtime"
 )
 
@@ -52,10 +51,11 @@ func Debug(v ...interface{}) {
 
 // Info output logs at info level
 func Info(v ...interface{}) {
-	//setPrefix(INFO)
-	fmt.Println(v)
-	fmt.Println(reflect.TypeOf(v))
-	fmt.Println(logger)
+	setPrefix(INFO)
+	//fmt.Println(v)
+	//fmt.Println(reflect.TypeOf(v))
+	//fmt.Println(logger)
+	fmt.Println("ok!")
 	logger.Println(v)
 }
 
